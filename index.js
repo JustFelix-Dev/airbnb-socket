@@ -4,15 +4,14 @@ const cors = require('cors');
 const app = express();
 
 app.use((cors({
-      origin: 'https://www.airbnb.felixdev.com.ng',
+      origin: '*',
 })));
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://www.airbnb.felixdev.com.ng');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     next();
     });
-    
+
 const io = new Server({
                         cors:"https://www.airbnb.felixdev.com.ng", 
                         methods: ['GET', 'POST'],
