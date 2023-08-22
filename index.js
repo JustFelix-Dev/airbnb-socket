@@ -4,6 +4,9 @@ const io = new Server({
                         methods: ['GET', 'POST'],
                         credentials: true,
                     });
+Server.prependListener("request", (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    });
 
 let onlineUsers = [];
 
