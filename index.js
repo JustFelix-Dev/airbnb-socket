@@ -13,10 +13,8 @@ app.use((req, res, next) => {
     });
 
 const io = new Server({
-                        cors:"https://www.airbnb.felixdev.com.ng", 
+                        cors:"*",
                         methods: ['GET', 'POST'],
-                        credentials: true,
-                        allowEIO3: true,
                     });
 
 
