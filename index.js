@@ -1,12 +1,11 @@
 const { Server } = require("socket.io");
 const io = new Server({
-                        cors: {origin:'*'},
+                        cors:"https://www.airbnb.felixdev.com.ng", 
                         methods: ['GET', 'POST'],
                         credentials: true,
+                        allowEIO3: true,
                     });
-Server.prependListener("request", (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    });
+
 
 let onlineUsers = [];
 
