@@ -1,19 +1,7 @@
 const { Server } = require("socket.io");
-const express = require('express');
-const cors = require('cors');
-const app = express();
-
-app.use((cors({
-      origin: '*',
-})));
-
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-    });
 
 const io = new Server({
-                        cors:"*",
+                        cors:"https://www.airbnb.felixdev.com.ng", 
                         methods: ['GET', 'POST'],
                     });
 
