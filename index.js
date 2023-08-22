@@ -1,5 +1,9 @@
 const { Server } = require("socket.io");
-const io = new Server({cors:"https://www.airbnb.felixdev.com.ng"});
+const io = new Server({
+                        cors:"https://www.airbnb.felixdev.com.ng", 
+                        methods: ['GET', 'POST'],
+                        credentials: true,
+                    });
 
 let onlineUsers = [];
 
