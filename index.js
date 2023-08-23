@@ -1,8 +1,10 @@
+const { createServer } = require('http');
 const { Server } = require("socket.io");
 
-const io = new Server({
+const httpServer = createServer();
+const io = new Server(httpServer, {
                         cors: {
-                            origin: '*',
+                            origin: "https://www.airbnb.felixdev.com.ng"
                         }, 
                     });
 
