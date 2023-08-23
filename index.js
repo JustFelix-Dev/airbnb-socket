@@ -4,7 +4,7 @@ const { Server } = require("socket.io");
 const httpServer = createServer();
 const io = new Server(httpServer, {
                         cors: {
-                            origin: "https://www.airbnb.felixdev.com.ng"
+                            origin: '*',
                         }, 
                     });
 
