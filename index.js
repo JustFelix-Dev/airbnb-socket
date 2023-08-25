@@ -6,7 +6,7 @@ const app = express();
 const httpServer = createServer(app);
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://www.airbnb.felixdev.com.ng'); // Replace with your client's domain
+    res.setHeader('Access-Control-Allow-Origin', ' * '); // Replace with your client's domain
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     next();
