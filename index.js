@@ -25,6 +25,10 @@ const allowedOrigins = [
       }
     },
   }));
+
+  app.get('/', (req, res) => {
+    res.send('Hello CORS');
+  });
   
 
 const io = new Server(httpServer,{
