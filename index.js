@@ -1,34 +1,31 @@
-const express = require('express');
 const { createServer } = require('http');
 const { Server } = require("socket.io");
-const cors = require('cors');
-const app = express();
-const httpServer = createServer(app);
+const httpServer = createServer();
 
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', ' * '); // Replace with your client's domain
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-  });
+// app.use((req, res, next) => {
+//     res.setHeader('Access-Control-Allow-Origin', ' * '); // Replace with your client's domain
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+//     next();
+//   });
   
-const allowedOrigins = [
-    "https://www.airbnb.felixdev.com.ng", // Add your client's domain here
-  ];
+// const allowedOrigins = [
+//     "https://www.airbnb.felixdev.com.ng", // Add your client's domain here
+//   ];
   
-  app.use(cors({
-    origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-  }));
+//   app.use(cors({
+//     origin: (origin, callback) => {
+//       if (allowedOrigins.includes(origin) || !origin) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error('Not allowed by CORS'));
+//       }
+//     },
+//   }));
 
-  app.get('/testing', (req, res) => {
-    res.send('Hello CORS');
-  });
+//   app.get('/testing', (req, res) => {
+//     res.send('Hello CORS');
+//   });
   
 
 const io = new Server(httpServer,{
