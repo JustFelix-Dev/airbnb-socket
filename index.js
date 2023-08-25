@@ -1,6 +1,26 @@
+const express = require('express');
+const { createServer } = require('http');
 const { Server } = require("socket.io");
+const cors = require('cors');
+const app = express();
+const httpServer = createServer(app);
 
-const io = new Server({
+const allowedOrigins = [
+    "https://www.airbnb.felixdev.com.ng", // Add your client's domain here
+  ];
+  
+  app.use(cors({
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+  }));
+  
+
+const io = new Server(httpServer,{
                         cors: {
                             origin: "https://www.airbnb.felixdev.com.ng",
                             methods: ["GET","POST"]
@@ -44,4 +64,4 @@ io.on("connection", (socket) => {
     })
 });
 
-io.listen(3000);
+httpServer.listen(3000);
