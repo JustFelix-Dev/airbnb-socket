@@ -2,7 +2,8 @@ const { Server } = require("socket.io");
 
 const io = new Server({
                         cors: {
-                            origin: "https://www.airbnb.felixdev.com.ng"
+                            origin: "https://www.airbnb.felixdev.com.ng",
+                            methods: ["GET","POST"]
                         }, 
                     });
 
